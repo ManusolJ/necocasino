@@ -42,5 +42,6 @@ __screenshots__/
 Thumbs.db
 
 # Dev files
+.env
 .*/
 !/.github
