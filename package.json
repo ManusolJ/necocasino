@@ -11,7 +11,9 @@
     "create-interface": "ng generate interface --path=src/app/shared/models",
     "create-feature": "ng generate component --skip-tests true --path=src/app/features",
     "create-service": "ng generate service --skip-tests true --path=src/app/core/services",
-    "create-component": "ng generate component --skip-tests true --path=src/app/shared/components"
+    "create-component": "ng generate component --skip-tests true --path=src/app/shared/components",
+    "create-pipe": "ng generate pipe --skip-tests true --path=src/app/shared/pipes",
+    "create-guard": "ng generate guard --skip-tests true --implements CanActivate --path=src/app/core/guards"
   },
   "private": true,
   "packageManager": "npm@12.0.2",
