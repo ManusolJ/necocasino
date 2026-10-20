@@ -1,7 +1,6 @@
 @import 'tailwindcss';
 
 @theme static {
-  --color-*: initial;
   --color-bg: #0b1210;
   --color-felt: #5c1a24;
   --color-line: rgb(255 255 255 / 0.08);
@@ -16,35 +15,6 @@
   --color-pocket-ink: #ffffff;
   --color-pocket-zero: #166534;
   --color-pocket-black: #1b1f1e;
-
-  --text-*: initial;
-  --text-small: 0.875rem;
-  --text-small--line-height: 1.25rem;
-  --text-body: 1rem;
-  --text-body--line-height: 1.5rem;
-  --text-heading: 1.125rem;
-  --text-heading--line-height: 1.75rem;
-  --text-heading--font-weight: 600;
-  --text-title: 1.5rem;
-  --text-title--line-height: 2rem;
-  --text-title--font-weight: 600;
-  --text-display: 2.25rem;
-  --text-display--line-height: 2.5rem;
-  --text-display--font-weight: 700;
-
-  --font-weight-*: initial;
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-
-  --radius-*: initial;
-  --radius-card: 0.75rem;
-  --radius-control: 0.5rem;
-
-  --breakpoint-*: initial;
-  --breakpoint-md: 48rem;
-  --breakpoint-lg: 64rem;
 }
 
 :root[data-theme='light'] {
@@ -70,9 +40,9 @@
 
   body {
     color: var(--color-content);
-    font-size: var(--text-body);
+    font-size: var(--text-base);
     background: var(--color-bg);
-    line-height: var(--text-body--line-height);
+    line-height: var(--text-base--line-height);
   }
 
   :focus-visible {
