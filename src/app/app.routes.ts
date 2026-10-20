@@ -9,23 +9,21 @@ export const routes: Routes = [
   },
   {
     path: 'auth',
+    loadComponent: () => import('@features/auth/auth').then((mod) => mod.Auth),
   },
-  {
-    path: 'home',
-  },
-  {
-    path: 'library',
-  },
-  {
-    path: 'wallet',
-  },
-  {
-    path: 'about',
-  },
-  {
-    path: 'profile',
-  },
-  {
-    path: '**',
-  },
+  // {
+  //   path: 'home',
+  // },
+  // {
+  //   path: 'library',
+  // },
+  // {
+  //   path: 'wallet',
+  // },
+  // {
+  //   path: 'about',
+  // },
+  // {
+  //   path: '**',
+  // },
 ];
