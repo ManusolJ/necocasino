@@ -1,0 +1,37 @@
+<div class="flex flex-1 flex-col lg:flex-row">
+  <div class="flex flex-col gap-6 bg-felt p-4 lg:w-1/2 lg:justify-between lg:p-12">
+    <div class="flex items-center gap-2">
+      <img [src]="logo()" alt="" width="24" height="24" class="size-6" />
+      <span class="text-lg font-semibold">Necocasino</span>
+    </div>
+    <img
+      [src]="coverArt()"
+      alt=""
+      width="560"
+      height="420"
+      class="mx-auto h-auto w-full max-w-84 lg:max-w-140"
+    />
+    <div class="hidden flex-col gap-2 lg:flex">
+      <p class="text-5xl font-bold">Let it ride</p>
+      <p class="text-muted">Si todavía tienes puntos, es que no has jugado lo suficiente.</p>
+    </div>
+  </div>
+  <div class="flex flex-1 flex-col items-center px-4 py-6 lg:w-1/2 lg:justify-center lg:p-12">
+    <div
+      class="flex w-full max-w-sm flex-col gap-4 lg:rounded-xl lg:border lg:border-line lg:bg-surface lg:p-6"
+    >
+      <h1 class="text-2xl font-semibold">Entra en el casino de Necoarc</h1>
+      <p class="text-muted">Usa tu cuenta de Discord. Solo vemos tu nombre y avatar.</p>
+      <button
+        type="button"
+        class="inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-accent px-4 font-medium text-bg hover:bg-accent/90 active:translate-y-px cursor-pointer"
+      >
+        Entrar con Discord
+      </button>
+      <p class="text-sm text-muted">Solo disponible para miembros de servidores con Necobot.</p>
+    </div>
+    <p class="mt-auto max-w-sm pt-6 text-center text-sm text-muted lg:mt-6 lg:pt-0">
+      Las fichas no tienen valor real. Se consiguen intercambiando puntos del bot.
+    </p>
+  </div>
+</div>
