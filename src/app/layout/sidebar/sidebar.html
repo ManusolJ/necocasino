@@ -1,0 +1,18 @@
+<div class="flex flex-col flex-1 justify-start bg-surface px-2 py-4 border-r-2 border-line">
+  <app-logo />
+  <span class="outline-1 outline-line mt-2"></span>
+  <div class="flex flex-col gap-2 mt-4">
+    @for (link of links; track link.url) {
+      <a
+        [routerLink]="link.url"
+        [routerLinkActive]="['bg-content/5', '!text-accent']"
+        ariaCurrentWhenActive="page"
+        #rla="routerLinkActive"
+        class="flex h-10 items-center gap-3 rounded-lg px-3 text-muted hover:bg-content/5"
+      >
+        <ng-icon [svg]="link.icon" size="20" [class.text-accent]="rla.isActive" />
+        {{ link.name }}
+      </a>
+    }
+  </div>
+</div>
