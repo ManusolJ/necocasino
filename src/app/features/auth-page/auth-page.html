@@ -19,7 +19,9 @@
     >
       <h1 class="text-2xl font-semibold">Entra en el casino de Necoarc</h1>
       <p class="text-muted">Usa tu cuenta de Discord. Solo vemos tu nombre y avatar.</p>
-      <a appButtonLink size="lg" class="w-full" [href]="loginUrl">Entrar con Discord</a>
+      <a appButtonLink size="lg" class="w-full cursor-pointer select-none" [routerLink]="loginUrl"
+        >Entrar con Discord</a
+      >
       <p class="text-sm text-muted">Solo disponible para miembros de servidores con Necobot.</p>
     </div>
     <p class="mt-auto max-w-sm pt-6 text-center text-sm text-muted lg:mt-6 lg:pt-0">
