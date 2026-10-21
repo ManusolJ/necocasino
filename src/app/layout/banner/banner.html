@@ -1,0 +1,30 @@
+<header
+  class="sticky top-0 z-10 flex h-14 shrink-0 items-center justify-end gap-2 border-b border-line bg-surface px-4 lg:h-16 lg:gap-3 lg:px-6"
+>
+  <a routerLink="/home" class="mr-auto rounded-lg lg:hidden">
+    <app-logo />
+  </a>
+  <span class="flex h-10 items-center gap-2 rounded-full border border-line bg-content/5 px-3">
+    <app-coin />
+    <span class="text-sm font-medium tabular-nums">0</span>
+    <span class="sr-only">fichas</span>
+  </span>
+  <button
+    type="button"
+    class="hidden size-10 items-center justify-center rounded-lg text-muted transition-colors duration-150 enabled:hover:bg-content/5 enabled:hover:text-content lg:flex"
+    [attr.aria-label]="isLight() ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro'"
+    (click)="changeTheme()"
+  >
+    <ng-icon [svg]="isLight() ? icons.sun : icons.moon" size="20" />
+  </button>
+  <button
+    type="button"
+    aria-label="Menú de usuario"
+    class="flex items-center gap-1 rounded-lg p-1 transition-colors duration-150 enabled:hover:bg-content/5"
+  >
+    <span class="size-8 rounded-full bg-felt"></span>
+    <span class="hidden text-muted lg:flex">
+      <ng-icon [svg]="icons.chevronDown" size="16" />
+    </span>
+  </button>
+</header>
