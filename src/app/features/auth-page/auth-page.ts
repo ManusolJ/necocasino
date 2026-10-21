@@ -17,6 +17,7 @@ import { RouterLink } from '@angular/router';
 export class Auth {
   private readonly themeStore = inject(ThemeStore);
 
+  // ! Change to api from environment once testing is over
   protected readonly loginUrl = `/lobby`;
 
   protected readonly coverArt = computed(() => `/cover-art-${this.themeStore.theme()}.svg`);

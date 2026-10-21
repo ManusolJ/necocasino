@@ -1,29 +1,29 @@
 import { NgIcon } from '@ng-icons/core';
 import { Component } from '@angular/core';
-import { lucideHome, lucideWallet, lucideLibrary } from '@ng-icons/lucide';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { lucideHouse, lucideWallet, lucideLayoutGrid } from '@ng-icons/lucide';
 
 import type { NavigationLink } from '@shared/models/navigation-link';
 
 import { Logo } from '@shared/components/logo/logo';
-import { RouterLinkActive, RouterLinkWithHref } from '@angular/router';
 
 @Component({
-  imports: [Logo, NgIcon, RouterLinkActive, RouterLinkWithHref],
+  imports: [Logo, NgIcon, RouterLink, RouterLinkActive],
   selector: 'app-sidebar',
+  host: { class: 'contents' },
   templateUrl: './sidebar.html',
-  host: { class: 'flex flex-col flex-1 w-1/6' },
 })
 export class Sidebar {
-  protected readonly links: NavigationLink[] = [
+  protected readonly links: readonly NavigationLink[] = [
     {
       name: 'Inicio',
       url: '/home',
-      icon: lucideHome,
+      icon: lucideHouse,
     },
     {
-      name: 'Biblioteca de juegos',
+      name: 'Biblioteca',
       url: '/library',
-      icon: lucideLibrary,
+      icon: lucideLayoutGrid,
     },
     {
       name: 'Cartera',

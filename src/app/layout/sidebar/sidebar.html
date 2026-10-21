@@ -1,18 +1,23 @@
-<div class="flex flex-col flex-1 justify-start bg-surface px-2 py-4 border-r-2 border-line">
-  <app-logo />
-  <span class="outline-1 outline-line mt-2"></span>
-  <div class="flex flex-col gap-2 mt-4">
+<nav
+  class="sticky bottom-0 z-10 order-last flex h-16 shrink-0 border-t border-line bg-surface lg:top-0 lg:order-0 lg:h-dvh lg:w-64 lg:flex-col lg:gap-6 lg:border-t-0 lg:border-r lg:px-4 lg:py-3"
+>
+  <a routerLink="/home" class="hidden h-10 items-center rounded-lg px-3 lg:flex">
+    <app-logo />
+  </a>
+  <div class="flex flex-1 lg:flex-none lg:flex-col lg:gap-1">
     @for (link of links; track link.url) {
       <a
         [routerLink]="link.url"
-        [routerLinkActive]="['bg-content/5', '!text-accent']"
+        routerLinkActive="lg:bg-content/5"
         ariaCurrentWhenActive="page"
         #rla="routerLinkActive"
-        class="flex h-10 items-center gap-3 rounded-lg px-3 text-muted hover:bg-content/5"
+        class="flex flex-1 flex-col items-center justify-center gap-0.5 text-sm transition-colors duration-150 lg:h-10 lg:flex-none lg:flex-row lg:justify-start lg:gap-3 lg:rounded-lg lg:px-3 lg:text-base lg:font-medium lg:hover:bg-content/5"
+        [class.text-muted]="!rla.isActive"
+        [class.font-medium]="rla.isActive"
       >
-        <ng-icon [svg]="link.icon" size="20" [class.text-accent]="rla.isActive" />
+        <ng-icon [svg]="link.icon" class="text-2xl lg:text-xl" [class.text-accent]="rla.isActive" />
         {{ link.name }}
       </a>
     }
   </div>
-</div>
+</nav>
