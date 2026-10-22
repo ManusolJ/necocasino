@@ -2,7 +2,6 @@ import type { Routes } from '@angular/router';
 
 import { authGuard } from '@core/guards/auth-guard';
 
-//TODO: Add module export once feature is ready
 export const routes: Routes = [
   {
     path: 'auth',
