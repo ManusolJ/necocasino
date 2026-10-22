@@ -1,0 +1,49 @@
+<article
+  class="relative flex w-full flex-col overflow-hidden rounded-xl border border-line bg-surface"
+>
+  <div class="grid h-45 grid-cols-1 grid-rows-1 bg-felt">
+    @if (showArt()) {
+      <img
+        [src]="art()"
+        alt=""
+        width="320"
+        height="180"
+        class="col-start-1 row-start-1 size-full object-contain"
+        (error)="hideArt()"
+      />
+    }
+    <h3 class="col-start-1 row-start-1 self-end bg-bg px-4 py-2 text-lg font-semibold">
+      <a [routerLink]="['/games', game().kind]" class="after:absolute after:inset-0">
+        {{ game().name }}
+      </a>
+    </h3>
+  </div>
+  <div class="flex flex-1 flex-col gap-3 p-4">
+    <p class="text-sm text-muted">{{ game().description }}</p>
+    <div class="mt-auto flex items-center justify-between gap-2">
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted">
+        <span class="flex items-center gap-2 whitespace-nowrap">
+          <ng-icon [svg]="icons.users" size="16" />
+          {{ players() }}
+        </span>
+        <span class="flex items-center gap-2 whitespace-nowrap">
+          <ng-icon [svg]="icons.gauge" size="16" />
+          {{ risk() }}
+        </span>
+      </div>
+      <button
+        type="button"
+        class="group relative flex h-10 items-center gap-2 rounded-lg px-2 text-sm text-muted transition-colors duration-150 enabled:hover:bg-content/5 aria-pressed:font-medium aria-pressed:text-content"
+        [attr.aria-pressed]="game().liked"
+      >
+        <ng-icon
+          [svg]="icons.heart"
+          size="20"
+          class="group-aria-pressed:text-accent group-aria-pressed:*:fill-current"
+        />
+        <span class="sr-only">Me gusta</span>
+        <span class="tabular-nums">{{ game().likeCount }}</span>
+      </button>
+    </div>
+  </div>
+</article>

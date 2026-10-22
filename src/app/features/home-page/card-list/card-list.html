@@ -1,0 +1,61 @@
+<section
+  class="flex flex-col gap-3 lg:gap-4"
+  [attr.aria-labelledby]="headingId()"
+  [attr.aria-busy]="games.isLoading()"
+>
+  <div class="flex flex-wrap items-center justify-between gap-x-4">
+    <h2 [id]="headingId()" class="flex items-center gap-2 text-lg font-semibold">
+      {{ section().name }}
+      <ng-icon [svg]="section().icon" size="20" class="text-muted" />
+    </h2>
+    @if (section().cta) {
+      <a
+        routerLink="/library"
+        [queryParams]="libraryParams()"
+        class="flex h-10 items-center gap-1 text-sm font-medium text-accent hover:underline lg:h-auto"
+      >
+        {{ section().cta }}
+        <ng-icon [svg]="icons.arrowRight" size="16" />
+      </a>
+    }
+  </div>
+  @if (games.hasValue()) {
+    @let list = games.value().games;
+    @if (list.length === 0) {
+      <div
+        class="flex flex-col items-center gap-3 rounded-xl border border-line bg-surface px-6 py-12 text-center"
+      >
+        <ng-icon [svg]="icons.inbox" size="32" class="text-muted" />
+        <p class="text-sm text-muted">Esta lista está vacía.</p>
+      </div>
+    } @else {
+      <div
+        class="-mx-4 flex snap-x snap-mandatory scroll-px-4 gap-4 overflow-x-auto px-4 md:mx-0 md:grid md:grid-cols-2 md:gap-8 md:overflow-visible md:px-0 lg:grid-cols-3"
+      >
+        @for (game of list; track game.kind) {
+          <app-game-card [game]="game" class="w-75 shrink-0 snap-start md:w-auto" />
+        }
+      </div>
+    }
+  } @else if (games.isLoading()) {
+    <div
+      class="flex flex-col items-center gap-3 rounded-xl border border-line bg-surface px-6 py-12 text-center"
+    >
+      <p class="text-sm text-muted">Cargando juegos…</p>
+    </div>
+  } @else {
+    <div
+      class="flex flex-col items-center gap-3 rounded-xl border border-line bg-surface px-6 py-12 text-center"
+    >
+      <ng-icon [svg]="icons.cloudOff" size="32" class="text-muted" />
+      <p class="text-sm text-muted">No se pudo cargar la lista.</p>
+      <button
+        type="button"
+        class="inline-flex h-10 items-center justify-center gap-2 rounded-lg px-4 font-medium enabled:hover:bg-content/5 disabled:cursor-not-allowed disabled:opacity-50"
+        (click)="games.reload()"
+      >
+        Reintentar
+      </button>
+    </div>
+  }
+</section>
